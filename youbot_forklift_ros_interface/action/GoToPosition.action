@@ -1,0 +1,8 @@
+# Define the goal
+float32 goal_position_in_meter
+---
+# Define the result
+bool position_reached
+---
+# Define a feedback message
+float32 position_error

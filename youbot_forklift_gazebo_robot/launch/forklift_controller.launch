@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+
+
+
+  <!-- upload forklift controller parameters -->
+  <rosparam file="$(find youbot_forklift_gazebo_robot)/config/forklift_controller.yaml" command="load" ns="forklift"/> 
+ 
+  <!-- spawn forklift controller -->
+  <node pkg="controller_manager" type="spawner" name="forklift_controller_spawner"  args="forklift/forklift_controller" respawn="false" output="screen" />
+  
+
+</launch>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package>
+  <name>youbot_forklift_control</name>
+  <version>0.1.0</version>
+  <description>The youbot_forklift package</description>
+
+  <maintainer email="florek-jasinska@locomotec.com">Monika Florek-JAsinska</maintainer>
+
+  <license>BSD</license>
+
+  <author email="florek-jasinska@locomotec.com">Monika Florek-Jasinska</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <export>
+  </export>
+</package>

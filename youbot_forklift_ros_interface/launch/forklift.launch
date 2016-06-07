@@ -1,0 +1,17 @@
+<launch>
+
+
+  <param name="robot_description" command="$(find xacro)/xacro.py $(find youbot_forklift_description)/robots/forklift_only.urdf.xacro" />
+
+
+	<node name="forklift" pkg="youbot_forklift_ros_interface" type="youbot_forklift_ros_interface" output="screen">
+		<remap from="forklift/joint_states" to="/joint_states"/> 
+	
+	</node>
+
+
+	<node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher" output="screen"/>
+
+
+
+</launch>

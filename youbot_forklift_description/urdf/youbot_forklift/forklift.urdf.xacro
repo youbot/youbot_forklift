@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro">
+
+	<xacro:include filename="$(find youbot_forklift_description)/urdf/youbot_forklift/forklift.gazebo.xacro" />
+	<xacro:include filename="$(find youbot_forklift_description)/urdf/youbot_forklift/forklift.transmission.xacro" />
+
+
+	<xacro:macro name="youbot_forklift" params="name parent *origin">
+
+		<link name="${name}_base">
+
+			<inertial>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<mass value="0.1"/>
+				<inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+			</inertial>
+			
+			<visual>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+						 <mesh filename="package://youbot_forklift_description/meshes/youbot_forklift/base.STL"/>
+				</geometry>
+				<material name="DarkGrey" />
+			</visual>
+		
+			<collision>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+						<mesh filename="package://youbot_forklift_description/meshes/youbot_forklift/base_convex.dae"  />
+				</geometry>
+			</collision>
+		</link>
+
+		<link name="${name}_fork">
+			<inertial>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<mass value="0.01"/>
+				<inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+			</inertial>
+			
+			<visual>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+					<mesh filename="package://youbot_forklift_description/meshes/youbot_forklift/fork.STL"  />
+				</geometry>
+				<material name="DarkGrey" />
+			</visual>
+			
+			<collision>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+					<mesh filename="package://youbot_forklift_description/meshes/youbot_forklift/fork.STL"/>
+				</geometry>
+			</collision>
+		</link>
+		
+	<joint name="joint_0"  type="fixed">
+		  <insert_block name="origin" />
+		  <parent link="${parent}"/>
+		  <child link="${name}_base"/>
+	</joint>
+		<joint name="${name}_axis" type="prismatic">
+			<origin xyz="0 0 -0.14" rpy="0 0 0" />
+			<parent link="${name}_base"/>
+			<child link="${name}_fork"/>
+			<axis xyz="0 0 1" />
+			
+			<dynamics damping="1.0" friction="1.0" />
+			<limit effort="1" velocity="0.2" lower="0" upper="0.2"/> 
+    	<safety_controller k_position="20" k_velocity="25" soft_lower_limit="-0.1" soft_upper_limit="0.2" />
+		</joint>
+
+		
+
+
+		
+		<xacro:youbot_forklift_gazebo name="${name}" />
+		<xacro:youbot_forklift_transmission name="${name}" />
+
+
+	</xacro:macro>
+
+</robot>

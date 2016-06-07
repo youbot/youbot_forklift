@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package>
+  <name>youbot_forklift_gazebo_robot</name>
+  <version>0.1.0</version>
+  <description>Launch youBot Forklift in the Gazebo simulator</description>
+
+  <maintainer email="nowak@locomotec.com">Walter Nowak</maintainer>
+
+  <license>BSD</license>
+
+  <author email="florek-jasinska@locomotec.com">Monika Florek-Jasinska</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>xacro</run_depend>
+  <run_depend>youbot_gazebo_control</run_depend>
+  <run_depend>youbot_gazebo_worlds</run_depend>
+  <run_depend>youbot_forklift_description</run_depend>
+  <run_depend>youbot_description</run_depend>
+  <run_depend>gazebo_ros</run_depend>
+  <run_depend>robot_state_publisher</run_depend>
+
+</package>

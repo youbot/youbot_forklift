@@ -1,0 +1,13 @@
+<launch>
+
+  <node pkg="joy" type="joy_node" name="joy">
+    <param name="dev" value="/dev/input/js1" /> <!-- Customize this to match the location your joystick is plugged in on-->
+  </node>
+
+  <param name="robot_description" command="$(find xacro)/xacro.py $(find forklift_description)/robots/forklift_only.urdf.xacro" />
+
+	<node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen"/>
+
+	<node name="forklift" pkg="forklift_ros_interface" type="forklift_ros_interface" output="screen"/>
+
+</launch>

@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="world" default="robocup_at_work_2012"/>
+  <arg name="init_pos_x" default="0.0"/>
+  <arg name="init_pos_y" default="0.0"/>
+  <arg name="init_pos_z" default="0.0"/>
+
+  <!-- launch world -->
+  <include file="$(find youbot_gazebo_worlds)/launch/$(arg world).launch" />
+
+  <node pkg="gazebo_ros" type="spawn_model" name="spawn_robot" respawn="false" output="screen"
+    args="-param robot_description
+          -urdf
+          -x $(arg init_pos_x)
+          -y $(arg init_pos_y)
+          -z $(arg init_pos_z)
+          -model youbot">
+  </node>
+
+  <!-- launch joint state controller -->
+	<include file="$(find youbot_forklift_gazebo_robot)/launch/joint_state_controller.launch" />
+
+  <include file="$(find youbot_forklift_gazebo_robot)/launch/forklift_controller.launch" />
+
+ <param name="robot_description" command="$(find xacro)/xacro.py $(find youbot_forklift_description)/robots/youbot_with_forklift.urdf.xacro" />
+
+
+	<node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher" output="screen"/>
+
+
+
+
+</launch>

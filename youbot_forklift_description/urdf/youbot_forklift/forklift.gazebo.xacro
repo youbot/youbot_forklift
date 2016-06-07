@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro">
+
+	<xacro:macro name="youbot_forklift_gazebo" params="name">
+
+		<gazebo reference="${name}_base">
+			<turnGravityOff>true</turnGravityOff>
+			<selfCollide>false</selfCollide>
+		</gazebo>
+	
+		<gazebo reference="${name}_fork">
+			<turnGravityOff>true</turnGravityOff>
+			<selfCollide>false</selfCollide>
+		</gazebo>
+	
+	
+	</xacro:macro>
+
+</robot>

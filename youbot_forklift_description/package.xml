@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package>
+  <name>youbot_forklift_description</name>
+  <version>0.1.0</version>
+  <description>Forklift descriptions in form of URDF files and meshes</description>
+
+  <maintainer email="florek-jasinska@locomotec.com">Monika Florek-Jasinska</maintainer>
+
+  <license>BSD</license>
+
+   <author email="florek-jasinska@locomotec.com">Monika Florek-Jasinska</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+</package>
