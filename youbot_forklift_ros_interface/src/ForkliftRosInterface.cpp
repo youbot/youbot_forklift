@@ -62,7 +62,7 @@ void phaseCurrentCallback(const std_msgs::Int16& phaseCurrent){
 
 void velocityCallback(const std_msgs::Float64& velocity){
 	if(velocity.data != currentVelocity){
-		if(forkliftControl.setMaxVelocity(abs(velocity.data))){
+		if(forkliftControl.setMaxVelocity(fabs(velocity.data))){
 			currentVelocity = velocity.data;
 			ROS_INFO_STREAM("Max velocity set to: " << velocity.data);
 		}

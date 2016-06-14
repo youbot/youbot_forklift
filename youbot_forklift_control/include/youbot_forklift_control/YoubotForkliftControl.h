@@ -10,6 +10,7 @@
 
 #include "CommunicationNanotecMotorController.h"
 #include <memory>
+#include <math.h>
 
 namespace youbot_forklift_control {
 

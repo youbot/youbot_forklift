@@ -42,7 +42,7 @@ bool YoubotForkliftControl::moveToRelativePosition(double relativePosInMeter) {
 		} else {
 			motorController.setDirectionToDown();
 		}
-		setTravelDistance(abs(relativePosInMeter));
+		setTravelDistance(fabs(relativePosInMeter));
 		motorController.startMovement();
 		return true;
 	}	else {
@@ -59,12 +59,12 @@ void YoubotForkliftControl::stopMovementRamp() {
 }
 
 void YoubotForkliftControl::setMotorParameters() {
-	mmPerRev = 2;
+	mmPerRev = 3;
 	degPerStep = 1.8;
 	stepSize = motorController.getStepSize();
 	stepPerMeter = 360 / degPerStep /stepSize / mmPerRev * 1000;
 	meterPerStep = 1/stepPerMeter;
-	lengthOfRodInMeters = 0.27;
+	lengthOfRodInMeters = 0.25;
 	setMaxVelocity(0.004);
 }
 

@@ -48,10 +48,10 @@ int main (int argc, char **argv)
   forkliftClient.waitForServer();
   ROS_INFO("Action server started, sending goal.");
 
-  velocity.data = 0.006;
+  velocity.data = 0.01;
   velocityPublisher.publish(velocity);
 
-  goal.goal_position_in_meter = 0.06;
+  goal.goal_position_in_meter = 0.0;
   forkliftClient.sendGoal(goal, &doneCb, &activeCb, &feedbackCb);
 
 
