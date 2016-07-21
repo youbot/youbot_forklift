@@ -116,9 +116,9 @@ std::string CommunicationNanotecMotorController::readMessage(std::string& comman
 
 void CommunicationNanotecMotorController::performReferenceProcedure() {
 	if (isControllerReferenced() == true) {
-		logger->printInfo("motor is referenced");
+		logger->printInfo("Motor is referenced");
 	}	else {
-		logger->printInfo("performing reference procedure");
+		logger->printInfo("Performing reference procedure");
 
 		setIOForReferenceSensor();
 		setDirectionToDown();

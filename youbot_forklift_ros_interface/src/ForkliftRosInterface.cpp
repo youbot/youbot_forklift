@@ -91,12 +91,10 @@ bool goToPosition(double position){
 void setGoal(){
 	result_.position_reached = false;
 	double newGoal = goToPosAction->acceptNewGoal()->goal_position_in_meter;
-	std::cout<<"new goal: "<< newGoal<<std::endl;
+	ROS_INFO_STREAM("New goal for forklift: " << newGoal);
 	double position = newGoal-forkliftControl.getCurrentAbsolutePosition();
-	std::cout<<"1: "<<position<<std::endl;
 	if (fabs(newGoal-forkliftControl.getCurrentAbsolutePosition()) < positionTreshold){
 		double position = newGoal-forkliftControl.getCurrentAbsolutePosition();
-		std::cout<<"2: "<<position<<"is lower than: "<<positionTreshold<< std::endl;
 		result_.position_reached = true;
 		goToPosAction->setSucceeded(result_);
 	} else if (!goToPosition(newGoal)){
