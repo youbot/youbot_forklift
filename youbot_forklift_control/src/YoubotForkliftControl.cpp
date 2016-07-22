@@ -59,7 +59,7 @@ void YoubotForkliftControl::stopMovementRamp() {
 }
 
 void YoubotForkliftControl::setMotorParameters() {
-	mmPerRev = 3;
+	mmPerRev = 2;
 	degPerStep = 1.8;
 	stepSize = motorController.getStepSize();
 	stepPerMeter = 360 / degPerStep /stepSize / mmPerRev * 1000;
